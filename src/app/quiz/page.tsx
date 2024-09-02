@@ -68,7 +68,11 @@ export default function Quiz() {
     if (!resultRef.current) return;
 
     try {
-      const canvas = await html2canvas(resultRef.current);
+      const canvas = await html2canvas(resultRef.current, {
+        useCORS: true,
+        allowTaint: true,
+        scale: 2,
+      });
       const dataUrl = canvas.toDataURL("image/png");
       setScreenshot(dataUrl);
       setShowModal(true);
@@ -105,21 +109,21 @@ export default function Quiz() {
     return (
       <div className="bg-gradient-to-b from-indigo-100 via-white to-indigo-100 min-h-screen flex flex-col justify-center items-center px-4 md:px-0">
         <div
-          className="text-center p-4 md:p-10 bg-white shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl"
+          className="text-center px-4 py-4 md:px-8 md:py-3 bg-white shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl"
           ref={resultRef}
         >
-          <div className="w-full aspect-square relative">
+          <div className="w-full aspect-[16/12] relative">
             <Image
               src={result.image ? result.image : "/images/quiz-result.jpg"}
               alt={result.title}
               layout="fill"
-              className="object-cover object-top rounded-lg absolute"
+              className="object-contain object-top rounded-lg absolute"
             />
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl mt-2 font-extrabold text-indigo-700 mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl mt-2 font-extrabold text-indigo-700 mb-4 md:mb-2">
             {result.title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-10 w-fit">
+          <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-4 w-fit">
             {result.description}
           </p>
         </div>
@@ -186,7 +190,7 @@ export default function Quiz() {
 
   return (
     <div className="bg-white relative">
-      <div className="absolute top-0 left-0 right-0 h-12 w-full flex items-center md:justify-end justify-center">
+      <div className="absolute top-0 left-0 right-0 h-12 w-full flex items-center md:justify-end">
         <HomeIcon
           className="h-8 w-8 text-indigo-700 mx-4 cursor-pointer"
           onClick={() => router.push("/")}
@@ -196,7 +200,7 @@ export default function Quiz() {
           onClick={handleGoBack}
         />
       </div>
-      <div className="container mx-auto px-6 py-12 text-center min-h-screen flex flex-col justify-center items-center">
+      <div className="container mx-auto px-6 py-12 text-center h-screen flex flex-col justify-center items-center">
         <div className="flex flex-col w-full max-w-2xl">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Question {currentQuestionIndex + 1} of {quizQuestions.length}{" "}
