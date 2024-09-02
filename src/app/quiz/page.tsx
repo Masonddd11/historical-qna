@@ -103,9 +103,9 @@ export default function Quiz() {
 
   if (showResult && result) {
     return (
-      <div className="bg-gradient-to-b from-indigo-100 via-white to-indigo-100 h-screen flex flex-col justify-center items-center">
+      <div className="bg-gradient-to-b from-indigo-100 via-white to-indigo-100 min-h-screen flex flex-col justify-center items-center px-4 md:px-0">
         <div
-          className="text-center p-10 bg-white shadow-2xl rounded-2xl max-w-xl transition-all duration-75 hover:shadow-xl"
+          className="text-center p-4 md:p-10 bg-white shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl"
           ref={resultRef}
         >
           <div className="w-full aspect-square relative">
@@ -116,37 +116,42 @@ export default function Quiz() {
               className="object-cover object-top rounded-lg absolute"
             />
           </div>
-          <h2 className="text-6xl mt-2 font-extrabold text-indigo-700 mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl mt-2 font-extrabold text-indigo-700 mb-4 md:mb-6">
             {result.title}
           </h2>
-          <p className="text-xl text-gray-700 mb-10 w-fit ">
+          <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-10 w-fit">
             {result.description}
           </p>
         </div>
         <div className="flex flex-row justify-center items-center mt-4">
           <button
-            className="bg-indigo-700 text-white py-4 px-10 rounded-full shadow-lg hover:bg-indigo-800 transition-all duration-300 transform hover:scale-105 text-lg font-bold tracking-wider"
+            className="bg-indigo-700 text-white py-3 px-6 md:py-4 md:px-10 rounded-full shadow-lg hover:bg-indigo-800 transition-all duration-300 transform hover:scale-105 text-lg md:text-xl font-bold tracking-wider"
             onClick={() => router.push("/")}
           >
             Retake Quiz
           </button>
           <ShareIcon
-            className="h-8 w-8 text-black mx-4 cursor-pointer"
+            className="h-8 w-8 text-black mx-4 mt-4 md:mt-0 cursor-pointer"
             onClick={handleCapture}
           />
         </div>
 
         {/* Modal */}
         {showModal && (
-          <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white rounded-lg p-4 shadow-lg text-center max-w-lg">
-              <h2 className="text-xl font-bold mb-2">Share Your Result</h2>
+          <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50 px-4 md:px-0">
+            <div className="bg-white rounded-lg p-4 md:p-6 shadow-lg text-center max-w-full md:max-w-lg w-full">
+              <h2 className="text-lg md:text-xl font-bold mb-2">
+                Share Your Result
+              </h2>
               {screenshot && (
-                <img
-                  src={screenshot}
-                  alt="Screenshot of your result"
-                  className="rounded-lg mb-4 max-w-full h-auto"
-                />
+                <div className="h-1/2 aspect-square relative">
+                  <Image
+                    src={screenshot}
+                    alt="Screenshot of your result"
+                    className="rounded-lg mb-4 max-w-full h-auto object-contain absolute"
+                    fill
+                  />
+                </div>
               )}
               <button
                 className="bg-indigo-700 text-white py-2 px-4 rounded-full shadow-lg hover:bg-indigo-800 transition-all duration-300 text-lg font-bold"
@@ -208,7 +213,7 @@ export default function Quiz() {
             <button
               key={option.option}
               onClick={() => handleAnswer(option.option)}
-              className="bg-indigo-600 text-white py-1 px-2 md:py-4 md:px-6 rounded-lg shadow-md hover:bg-indigo-700 transition transform hover:scale-105 flex items-center justify-center h-40  text-md md:text-lg lg:text-xl font-semibold leading-tight md:leading-normal tracking-tight md:tracking-normal"
+              className="bg-indigo-600 text-white py-1 px-2 md:py-4 md:px-6 rounded-lg shadow-md hover:bg-indigo-700 transition transform hover:scale-105 flex items-center justify-center h-40 text-md md:text-lg lg:text-xl font-semibold leading-tight md:leading-normal tracking-tight md:tracking-normal"
             >
               {option.text}
             </button>
