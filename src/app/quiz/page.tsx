@@ -186,7 +186,7 @@ export default function Quiz() {
 
   return (
     <div className="bg-white relative">
-      <div className="absolute top-0 left-0 right-0 h-12 w-full flex items-center justify-end">
+      <div className="absolute top-0 left-0 right-0 h-12 w-full flex items-center md:justify-end justify-center">
         <HomeIcon
           className="h-8 w-8 text-indigo-700 mx-4 cursor-pointer"
           onClick={() => router.push("/")}
