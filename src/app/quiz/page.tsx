@@ -120,7 +120,7 @@ export default function Quiz() {
               className="object-contain object-top rounded-lg absolute"
             />
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl mt-2 font-extrabold text-indigo-700 mb-4 md:mb-2">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl mt-2 font-extrabold text-indigo-700 mb-4">
             {result.title}
           </h2>
           <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-4 w-fit">
