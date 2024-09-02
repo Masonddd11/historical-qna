@@ -208,7 +208,7 @@ export default function Quiz() {
         <p className="text-xl text-gray-700 mb-10 mt-6">
           {currentQuestion.question}
         </p>
-        <div className="grid grid-cols-2 gap-8 w-full max-w-2xl">
+        <div className="grid grid-cols-2 gap-4 md:gap-8 w-full max-w-2xl">
           {currentQuestion.options.map((option) => (
             <button
               key={option.option}
