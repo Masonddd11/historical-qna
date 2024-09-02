@@ -1,3 +1,8 @@
+import ChineseNobel from "/public/chinese-nobel.jpg";
+import MughalPrince from "/public/mughal-prince.jpg";
+import OttomanSultan from "/public/ottoman-sultan.jpg";
+import Samurai from "/public/samurai.jpg";
+
 // questions constants
 
 export const quizQuestions = [
@@ -140,28 +145,30 @@ export const quizQuestions = [
   },
 ];
 
-
 // result constants
-
 export const quizResults = {
   A: {
     title: "Mughal Prince",
     description:
       "You are a Mughal prince! You value art, culture, and the finer things in life. You are a patron of the arts and deeply involved in the cultural and architectural advancements of your empire. Diplomacy and strategic alliances are your tools of choice in maintaining power.",
+    image: MughalPrince,
   },
   B: {
     title: "Samurai",
     description:
       "You are a Samurai! Honor, duty, and martial prowess define you. You adhere to a strict code of conduct and believe in leading by example. Your life is one of discipline, and you value loyalty and bravery above all else.",
+    image: Samurai,
   },
   C: {
     title: "Chinese Noble",
     description:
       "You are a Chinese noble! Wisdom, tradition, and scholarly pursuits are central to your identity. You uphold the values of your ancestors and believe in governing through a meritocratic system. You appreciate the arts and contribute to the intellectual legacy of your time.",
+    image: ChineseNobel,
   },
   D: {
     title: "Ottoman Sultan",
     description:
       "You are an Ottoman Sultan! Power, influence, and strategic governance are your strengths. You command respect and loyalty from those around you and believe in expanding your empire through both military might and diplomatic skill. Your legacy is one of grandeur and enduring influence.",
+    image: OttomanSultan,
   },
 };
