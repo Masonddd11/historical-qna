@@ -196,7 +196,7 @@ export default function Quiz() {
           onClick={handleGoBack}
         />
       </div>
-      <div className="container mx-auto px-6 py-12 text-center h-screen flex flex-col justify-center items-center">
+      <div className="container mx-auto px-6 py-12 text-center min-h-screen flex flex-col justify-center items-center">
         <div className="flex flex-col w-full max-w-2xl">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Question {currentQuestionIndex + 1} of {quizQuestions.length}{" "}
