@@ -22,7 +22,7 @@ export const TypewriterEffect = ({
   const wordsArray = words.map((word) => {
     return {
       ...word,
-      text: lang === "zh" ? [word.text] : word.text.split(""),
+      text: lang === "zh" ? word.text.split("") : word.text.split(""),
     };
   });
 
@@ -54,7 +54,8 @@ export const TypewriterEffect = ({
             <div key={`word-${idx}`} className="inline-block w-fit">
               {word.text.map((char, index) => (
                 <motion.span
-                  initial={{}}
+                  initial={{
+                  }}
                   key={`char-${index}`}
                   className={cn(
                     `text-blue-600 opacity-0 hidden`,

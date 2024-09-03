@@ -36,14 +36,18 @@ export default function Home() {
             {language === "en" ? (
               <p
                 className="cursor-pointer font-semibold text-blue-700 whitespace-nowrap"
-                onClick={() => setLanguage("zh")}
+                onClick={() => {
+                  setLanguage("zh");
+                }}
               >
                 中文
               </p>
             ) : (
               <p
                 className="cursor-pointer font-semibold text-blue-700"
-                onClick={() => setLanguage("en")}
+                onClick={() => {
+                  setLanguage("en");
+                }}
               >
                 ENG
               </p>
@@ -53,9 +57,10 @@ export default function Home() {
       </header>
 
       {/* Main Content Section */}
-      <main className="container relative ove mx-auto px-6 py-12 text-center flex-grow flex flex-col justify-center items-center">
+      <main className="container relative mx-auto px-6 py-12 text-center flex-grow flex flex-col justify-center items-center">
         <h2 className="text-6xl font-extrabold text-gray-800 mb-8 leading-tight">
           <TypewriterEffect
+            key={language}
             lang={language}
             words={
               language === "en"
@@ -88,8 +93,6 @@ export default function Home() {
           <p className="text-sm">{currentTexts.footer}</p>
         </div>
       </footer>
-
-      {/* Background Decorations */}
     </div>
   );
 }
