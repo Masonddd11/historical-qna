@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { quizQuestions, quizResults } from "../../const";
+import { quizQuestionsEn, quizResultsEn } from "@/constants/en";
+import { quizQuestionsZh, quizResultsZh } from "@/constants/zh";
 import ProgressBar from "@/components/ProgressBar";
 import { useRouter } from "next/navigation";
 import { ArrowUturnLeftIcon, HomeIcon } from "@heroicons/react/24/solid";
@@ -9,6 +10,7 @@ import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { ShareIcon } from "@heroicons/react/24/outline";
 import html2canvas from "html2canvas";
+import { AppLocale, useLang } from "@/context/LangContext";
 
 interface Option {
   option: string;
@@ -27,15 +29,30 @@ interface Results {
   image?: StaticImageData;
 }
 
-type ResultKey = keyof typeof quizResults;
+type ResultKey = keyof typeof quizResultsEn;
+
+const languages = {
+  en: {
+    questions: quizQuestionsEn,
+    results: quizResultsEn,
+  },
+  zh: {
+    questions: quizQuestionsZh,
+    results: quizResultsZh,
+  },
+};
 
 export default function Quiz() {
+  const { language, setLanguage } = useLang();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [showResult, setShowResult] = useState<boolean>(false);
   const [result, setResult] = useState<Results | null>(null);
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
+
+  const quizQuestions = languages[language as AppLocale].questions;
+  const quizResults = languages[language as AppLocale].results;
 
   const resultRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -132,8 +149,9 @@ export default function Quiz() {
             className="bg-indigo-700 text-white py-3 px-6 md:py-4 md:px-10 rounded-full shadow-lg hover:bg-indigo-800 transition-all duration-300 transform hover:scale-105 text-lg md:text-xl font-bold tracking-wider"
             onClick={() => router.push("/")}
           >
-            Retake Quiz
+            {language === "en" ? "Retake Quiz" : "再次測驗"}
           </button>
+          
           <ShareIcon
             className="h-8 w-8 text-black mx-4 mt-4 md:mt-0 cursor-pointer"
             onClick={handleCapture}
@@ -189,39 +207,58 @@ export default function Quiz() {
   const currentQuestion: Question = quizQuestions[currentQuestionIndex];
 
   return (
-    <div className="bg-white relative">
-      <div className="absolute top-0 left-0 right-0 h-12 w-full flex items-center md:justify-end">
+    <div className="flex flex-col">
+      <div className="h-16 w-full inline-flex items-center justify-between md:justify-end gap-4 px-4 container mx-auto">
         <HomeIcon
-          className="h-8 w-8 text-indigo-700 mx-4 cursor-pointer"
+          className="h-8 w-8 text-indigo-700 cursor-pointer"
           onClick={() => router.push("/")}
         />
         <ArrowUturnLeftIcon
-          className="h-8 w-8 text-indigo-700 mx-4 cursor-pointer"
+          className="h-8 w-8 text-indigo-700 cursor-pointer"
           onClick={handleGoBack}
         />
-      </div>
-      <div className="container mx-auto px-6 py-12 text-center h-screen flex flex-col justify-center items-center">
-        <div className="flex flex-col w-full max-w-2xl">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Question {currentQuestionIndex + 1} of {quizQuestions.length}{" "}
-          </h2>
-          <ProgressBar
-            progress={(currentQuestionIndex / quizQuestions.length) * 100}
-          />
-        </div>
-        <p className="text-xl text-gray-700 mb-10 mt-6">
-          {currentQuestion.question}
-        </p>
-        <div className="grid grid-cols-2 gap-4 md:gap-8 w-full max-w-2xl">
-          {currentQuestion.options.map((option) => (
-            <button
-              key={option.option}
-              onClick={() => handleAnswer(option.option)}
-              className="bg-indigo-600 text-white py-1 px-2 md:py-4 md:px-6 rounded-lg shadow-md hover:bg-indigo-700 transition transform hover:scale-105 flex items-center justify-center h-40 text-md md:text-lg lg:text-xl font-semibold leading-tight md:leading-normal tracking-tight md:tracking-normal"
+        <button className="w-fit py-1 px-2 bg-indigo-600 rounded-xl">
+          {language === "en" ? (
+            <p
+              className="w-fit cursor-pointer font-semibold text-white"
+              onClick={() => setLanguage("zh")}
             >
-              {option.text}
-            </button>
-          ))}
+              中文
+            </p>
+          ) : (
+            <p
+              className="w-fit cursor-pointer font-semibold text-white"
+              onClick={() => setLanguage("en")}
+            >
+              ENG{" "}
+            </p>
+          )}
+        </button>
+      </div>
+      <div className="bg-white relative flex flex-col justify-start md:justify-center items-center min-h-screen">
+        <div className="container mx-auto px-6 py-12 text-center flex flex-col justify-center items-center">
+          <div className="flex flex-col w-full max-w-2xl">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Question {currentQuestionIndex + 1} of {quizQuestions.length}
+            </h2>
+            <ProgressBar
+              progress={(currentQuestionIndex / quizQuestions.length) * 100}
+            />
+          </div>
+          <p className="text-xl text-gray-700 mb-10 mt-6">
+            {currentQuestion.question}
+          </p>
+          <div className="grid grid-cols-2 gap-4 md:gap-8 w-full max-w-2xl">
+            {currentQuestion.options.map((option) => (
+              <button
+                key={option.option}
+                onClick={() => handleAnswer(option.option)}
+                className="bg-indigo-600 text-white py-1 px-2 md:py-4 md:px-6 rounded-lg shadow-md hover:bg-indigo-700 transition transform hover:scale-105 flex items-center justify-center h-40 text-md md:text-lg lg:text-xl font-semibold leading-tight md:leading-normal tracking-tight md:tracking-normal"
+              >
+                {option.text}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>

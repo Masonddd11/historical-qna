@@ -3,9 +3,21 @@ import MughalPrince from "/public/mughal-prince.jpg";
 import OttomanSultan from "/public/ottoman-sultan.jpg";
 import Samurai from "/public/samurai.jpg";
 
+// homepage constants
+export const homepageEn = {
+  title: "Historical Figure Quiz",
+  description: "Discover which historical figure you resemble the most!",
+  header: "Historical Figure Quiz",
+  mainTitle: "What Historical Figure Are You?",
+  mainDescription:
+    "Imagine you were born 300 years ago. Are you a prince? A king? A samurai? Take this quiz to find out and see which historical figure you resemble the most!",
+  startButton: "Start Quiz",
+  footer: `© ${new Date().getFullYear()} Mason Wong CityU. All rights reserved.`,
+};
+
 // questions constants
 
-export const quizQuestions = [
+export const quizQuestionsEn = [
   {
     id: 1,
     question: "How do you prefer to spend your leisure time?",
@@ -146,7 +158,7 @@ export const quizQuestions = [
 ];
 
 // result constants
-export const quizResults = {
+export const quizResultsEn = {
   A: {
     title: "Mughal Prince",
     description:
