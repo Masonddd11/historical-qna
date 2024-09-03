@@ -56,6 +56,7 @@ export default function Quiz() {
 
   const resultRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  
 
   const handleAnswer = (option: string) => {
     setAnswers({ ...answers, [currentQuestionIndex]: option });
@@ -88,7 +89,6 @@ export default function Quiz() {
       const canvas = await html2canvas(resultRef.current, {
         useCORS: true,
         allowTaint: true,
-        scale: 2,
       });
       const dataUrl = canvas.toDataURL("image/png");
       setScreenshot(dataUrl);
@@ -129,12 +129,21 @@ export default function Quiz() {
           className="text-center px-4 py-4 md:px-8 md:py-3 bg-white shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl"
           ref={resultRef}
         >
-          <div className="w-full aspect-[16/12] relative">
+          <div
+            className="w-full aspect-[16/12] relative"
+            style={{
+              position: "relative",
+              width: "100%",
+              paddingBottom: "75%",
+            }}
+            ref={resultRef}
+          >
             <Image
               src={result.image ? result.image : "/images/quiz-result.jpg"}
               alt={result.title}
               layout="fill"
-              className="object-contain object-top rounded-lg absolute"
+              className="object-contain rounded-lg absolute"
+              style={{ objectFit: "contain" }}
             />
           </div>
           <h2 className="text-2xl md:text-4xl lg:text-5xl mt-2 font-extrabold text-indigo-700 mb-4">
@@ -151,7 +160,7 @@ export default function Quiz() {
           >
             {language === "en" ? "Retake Quiz" : "再次測驗"}
           </button>
-          
+
           <ShareIcon
             className="h-8 w-8 text-black mx-4 mt-4 md:mt-0 cursor-pointer"
             onClick={handleCapture}

@@ -28,14 +28,14 @@ export default function Home() {
 
       {/* Header Section */}
       <header className="bg-blue-700  text-white py-6 shadow-lg">
-        <div className="container mx-auto flex justify-between items-center h-[80px]">
-          <h1 className="text-5xl font-extrabold tracking-wider">
+        <div className="container mx-auto flex justify-between items-center h-[80px] px-2">
+          <h1 className="text-2xl lg:text-5xl font-extrabold tracking-wider">
             {currentTexts.header}
           </h1>
           <button className="w-fit py-2 px-4 bg-white rounded-full shadow-md hover:bg-blue-200 transition duration-300">
             {language === "en" ? (
               <p
-                className="cursor-pointer font-semibold text-blue-700"
+                className="cursor-pointer font-semibold text-blue-700 whitespace-nowrap"
                 onClick={() => setLanguage("zh")}
               >
                 中文
