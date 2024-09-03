@@ -14,7 +14,7 @@ const initialLanguage: AppLocale = "en";
 
 const LangContext = createContext<{
   language: AppLocale;
-  setLanguage: React.Dispatch<React.SetStateAction<AppLocale>>;
+  setLanguage: (lang: AppLocale) => void;
 }>({
   language: initialLanguage,
   setLanguage: () => {},
@@ -23,6 +23,11 @@ const LangContext = createContext<{
 export const LangProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<AppLocale>(initialLanguage);
 
+  const setLocalLocale = (lang: AppLocale) => {
+    setLanguage(lang);
+    localStorage.setItem("language", lang);
+  };
+
   useEffect(() => {
     const storedLanguage = localStorage.getItem("language") as AppLocale;
     if (storedLanguage) {
@@ -30,12 +35,8 @@ export const LangProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("language", language);
-  }, [language]);
-
   return (
-    <LangContext.Provider value={{ language, setLanguage }}>
+    <LangContext.Provider value={{ language, setLanguage: setLocalLocale }}>
       {children}
     </LangContext.Provider>
   );

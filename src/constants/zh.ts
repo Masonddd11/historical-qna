@@ -7,7 +7,7 @@ export const homepageZh = {
   title: "歷史名人測驗",
   description: "找出你最像哪位歷史人物！",
   header: "歷史名人測驗",
-  mainTitle: "你是哪位歷史名人？",
+  mainTitle: "你是哪位歷史名人",
   mainDescription:
     "幻想你在300年前出生。你會是一位王子？一位國王？一位武士？參加這個測驗，看看你最像哪位歷史名人！",
   startButton: "開始測驗",
