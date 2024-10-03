@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   color: white;
 }
@@ -10,5 +9,11 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-trajan), sans-serif;
   }
 }

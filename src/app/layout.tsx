@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/context/LangContext";
+import localFont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+const Trajan = localFont({
+  src: "../../public/fonts/Trajan-Regular.ttf",
+  variable: "--font-trajan",
+});
 
 export const metadata: Metadata = {
   title: "Historical Figures Quiz",
@@ -19,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <LangProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={`${Trajan.variable} font-sans`}>{children}</body>
       </LangProvider>
     </html>
   );
