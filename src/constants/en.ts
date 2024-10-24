@@ -10,9 +10,11 @@ export const homepageEn = {
   header: "Historical Figure Quiz",
   mainTitle: "What Historical Figure Are You?",
   mainDescription:
-    "Imagine you were born 300 years ago. Are you a prince? A king? A samurai? Take this quiz to find out and see which historical figure you resemble the most!",
+    "Imagine you were born 300 years ago. Are you a prince? A king? A samurai?",
+  joinDescription:
+    "Take this quiz to find out and see which historical figure you resemble the most!",
   startButton: "Start Quiz",
-  footer: `© ${new Date().getFullYear()} Mason Wong CityU. All rights reserved.`,
+  footer: `© ${new Date().getFullYear()} CityUHK All rights reserved.`,
 };
 
 // questions constants

@@ -56,7 +56,6 @@ export default function Quiz() {
 
   const resultRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  
 
   const handleAnswer = (option: string) => {
     setAnswers({ ...answers, [currentQuestionIndex]: option });
@@ -126,11 +125,11 @@ export default function Quiz() {
     return (
       <div className="bg-gradient-to-b from-indigo-100 via-white to-indigo-100 min-h-screen flex flex-col justify-center items-center px-4 md:px-0">
         <div
-          className="text-center px-4 py-4 md:px-8 md:py-3 bg-white shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl"
+          className="text-center px-4 py-4 md:px-8 md:py-3 bg-white shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl flex flex-col justify-center items-center"
           ref={resultRef}
         >
           <div
-            className="w-full aspect-[16/12] relative"
+            className="w-full aspect-auto relative mt-4"
             style={{
               position: "relative",
               width: "100%",
@@ -146,7 +145,7 @@ export default function Quiz() {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl mt-2 font-extrabold text-indigo-700 mb-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl mt-10 font-extrabold text-indigo-700 mb-4">
             {result.title}
           </h2>
           <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-4 w-fit">
