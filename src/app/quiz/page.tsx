@@ -215,17 +215,17 @@ export default function Quiz() {
   const currentQuestion: Question = quizQuestions[currentQuestionIndex];
 
   return (
-    <div className="flex flex-col">
-      <div className="h-16 w-full inline-flex items-center justify-between md:justify-end gap-4 px-4 container mx-auto">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-indigo-100 via-white to-indigo-100">
+      <div className="relative h-16 w-full inline-flex items-center justify-between md:justify-end gap-4 px-4 container mx-auto z-10">
         <HomeIcon
-          className="h-8 w-8 text-indigo-700 cursor-pointer"
+          className="h-8 w-8 text-indigo-700 cursor-pointer z-10"
           onClick={() => router.push("/")}
         />
         <ArrowUturnLeftIcon
-          className="h-8 w-8 text-indigo-700 cursor-pointer"
+          className="h-8 w-8 text-indigo-700 cursor-pointer z-10"
           onClick={handleGoBack}
         />
-        <button className="w-fit py-1 px-2 bg-indigo-600 rounded-xl">
+        <button className="w-fit py-1 px-2 bg-indigo-600 rounded-xl z-10">
           {language === "en" ? (
             <p
               className="w-fit cursor-pointer font-semibold text-white"
@@ -242,6 +242,14 @@ export default function Quiz() {
             </p>
           )}
         </button>
+      </div>
+      <div className="absolute w-full top-0 h-48 z-0">
+        <Image
+          src="/question-banner.jpeg"
+          alt="Quiz Header Banner"
+          layout="fill"
+          className="object-cover h-48"
+        />
       </div>
       <div className="bg-white relative flex flex-col justify-start md:justify-center items-center min-h-screen">
         <div className="container mx-auto px-6 py-12 text-center flex flex-col justify-center items-center">
