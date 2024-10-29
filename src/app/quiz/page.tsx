@@ -175,7 +175,7 @@ export default function Quiz() {
                 Share Your Result
               </h2>
 
-              <div className="h-1/2 aspect-square relative mb-2">
+              <div className="h-1/2 aspect-square relative mb-2`">
                 <Image
                   src={result.result}
                   alt="Screenshot of your result"
