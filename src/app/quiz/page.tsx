@@ -125,7 +125,7 @@ export default function Quiz() {
     return (
       <div className="bg-gradient-to-b from-indigo-100 via-white to-indigo-100 min-h-screen flex flex-col justify-center items-center px-4 md:px-0">
         <div
-          className="text-center px-4 py-4 md:px-8 md:py-3 bg-white shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl flex flex-col justify-center items-center"
+          className="text-center px-4 py-4 md:px-8 md:py-3 bg-gray-100 shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl flex flex-col justify-center items-center"
           ref={resultRef}
         >
           <div
