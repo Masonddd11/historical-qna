@@ -1,13 +1,13 @@
-import ChineseNobel from "/public/chinese-nobel.jpg";
-import MughalPrince from "/public/mughal-prince.jpg";
-import OttomanSultan from "/public/ottoman-sultan.jpg";
-import Samurai from "/public/samurai.jpg";
+import ChineseNobel from "/public/chinese-nobel.png";
+import MughalPrince from "/public/mughal-prince.png";
+import OttomanSultan from "/public/ottoman-sultan.png";
+import Samurai from "/public/samurai.png";
 
 // homepage constants
 export const homepageEn = {
   title: "Historical Figure Quiz",
   description: "Discover which historical figure you resemble the most!",
-  header: "Historical Figure Quiz",
+  header: "Which historical figure are you?",
   mainTitle: "What Historical Figure Are You?",
   mainDescription:
     "Imagine you were born 300 years ago. Are you a prince? A king? A samurai?",

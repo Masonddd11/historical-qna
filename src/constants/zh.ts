@@ -1,7 +1,7 @@
-import ChineseNobel from "/public/chinese-nobel.jpg";
-import MughalPrince from "/public/mughal-prince.jpg";
-import OttomanSultan from "/public/ottoman-sultan.jpg";
-import Samurai from "/public/samurai.jpg";
+import ChineseNobel from "/public/chinese-nobel.png";
+import MughalPrince from "/public/mughal-prince.png";
+import OttomanSultan from "/public/ottoman-sultan.png";
+import Samurai from "/public/samurai.png";
 
 export const homepageZh = {
   title: "歷史名人測驗",
