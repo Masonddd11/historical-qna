@@ -8,7 +8,7 @@ export const homepageEn = {
   title: "Historical Figure Quiz",
   description: "Discover which historical figure you resemble the most!",
   header: "Which historical figure are you?",
-  mainTitle: "What Historical Figure Are You?",
+  mainTitle: "Which Historical Figure Are You?",
   mainDescription:
     "Imagine you were born 300 years ago. Are you a prince? A king? A samurai?",
   joinDescription:
