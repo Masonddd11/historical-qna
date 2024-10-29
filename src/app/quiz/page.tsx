@@ -26,7 +26,8 @@ interface Question {
 interface Results {
   title: string;
   description: string;
-  image?: StaticImageData;
+  image: StaticImageData;
+  result: StaticImageData;
 }
 
 type ResultKey = keyof typeof quizResultsEn;
@@ -138,7 +139,7 @@ export default function Quiz() {
             ref={resultRef}
           >
             <Image
-              src={result.image ? result.image : "/images/quiz-result.jpg"}
+              src={result.image}
               alt={result.title}
               layout="fill"
               className="object-contain rounded-lg absolute"
@@ -173,16 +174,16 @@ export default function Quiz() {
               <h2 className="text-lg md:text-xl font-bold mb-2">
                 Share Your Result
               </h2>
-              {screenshot && (
-                <div className="h-1/2 aspect-square relative">
-                  <Image
-                    src={screenshot}
-                    alt="Screenshot of your result"
-                    className="rounded-lg mb-4 max-w-full h-auto object-contain absolute"
-                    fill
-                  />
-                </div>
-              )}
+
+              <div className="h-1/2 aspect-square relative mb-2">
+                <Image
+                  src={result.result}
+                  alt="Screenshot of your result"
+                  className="rounded-lg mb-4 max-w-full h-auto object-contain absolute"
+                  fill
+                />
+              </div>
+
               <button
                 className="bg-indigo-700 text-white py-2 px-4 rounded-full shadow-lg hover:bg-indigo-800 transition-all duration-300 text-lg font-bold"
                 onClick={handleShare}

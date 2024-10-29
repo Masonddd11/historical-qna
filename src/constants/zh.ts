@@ -3,6 +3,11 @@ import MughalPrince from "/public/mughal-prince.png";
 import OttomanSultan from "/public/ottoman-sultan.png";
 import Samurai from "/public/samurai.png";
 
+import MughalPrinceZh from "/public/share-pics/1_mughal_prince.png";
+import OttomanSultanZh from "/public/share-pics/1_sultan.png";
+import SamuraiZh from "/public/share-pics/1_samurai.png";
+import ChineseNobelZh from "/public/share-pics/1_chinese_noble.png";
+
 export const homepageZh = {
   title: "歷史名人測驗",
   description: "找出你最像哪位歷史人物！",
@@ -156,23 +161,27 @@ export const quizResultsZh = {
     description:
       "你是莫臥兒王子！你重視藝術、文化和生活中美好的事物。你是藝術的贊助者，深入參與自己帝國的文化和建築發展。締結外交和戰略聯盟是你維持權力的工具。",
     image: MughalPrince,
+    result: MughalPrinceZh,
   },
   B: {
     title: "武士",
     description:
       "你是武士！榮譽、責任和武藝精湛是你的強項。遵守嚴格的行為準則，並相信以身作則的領導方式。你的生活充滿紀律，您最重視的是忠誠和勇氣。",
     image: Samurai,
+    result: SamuraiZh,
   },
   C: {
     title: "中國貴族",
     description:
       "你是中國貴族！智慧、傳統和學術追求是你的核心特質。你秉承祖先的價值觀，並相信透過精英制度進行治理。你欣賞藝術並為你那個時代的知識遺產作出貢獻。",
     image: ChineseNobel,
+    result: ChineseNobelZh,
   },
   D: {
     title: "鄂圖曼蘇丹",
     description:
       "你是鄂圖曼蘇丹！權力、影響力和策略管理是您的強項。你贏得了周圍人的尊重和效忠，並相信透過軍事力量和外交技巧來擴張你的帝國。您留下的是一份偉大且具有持久影響力的遺產。",
     image: OttomanSultan,
+    result: OttomanSultanZh,
   },
 };
