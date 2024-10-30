@@ -146,10 +146,20 @@ export default function Quiz() {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <h2 className="text-xl md:text-3xl lg:text-4xl mt-10 font-extrabold text-purple-800 mb-4">
+          <h2
+            className={`${
+              language === "en"
+                ? "text-lg md:text-2xl lg:text-3xl"
+                : "text-xl md:text-3xl lg:text-4xl"
+            } mt-10 font-extrabold text-purple-800 mb-4`}
+          >
             {result.title}
           </h2>
-          <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-4 w-fit">
+          <p
+            className={`${
+              language === "en" ? "text-xs md:text-base" : "text-sm md:text-lg"
+            } text-gray-700 mb-6 md:mb-4 w-fit`}
+          >
             {result.description}
           </p>
         </div>
