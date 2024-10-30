@@ -126,7 +126,7 @@ export default function Quiz() {
     return (
       <div className="bg-gradient-to-b from-indigo-100 via-white to-indigo-100 min-h-screen flex flex-col justify-center items-center px-4 md:px-0">
         <div
-          className="text-center px-4 py-4 md:px-8 md:py-3 bg-gray-100 shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl flex flex-col justify-center items-center"
+          className="text-center px-4 py-4 md:px-8 md:py-3 bg-gray-100 shadow-2xl rounded-2xl max-w-sm md:max-w-xl w-full transition-all duration-75 hover:shadow-xl flex flex-col justify-start items-center"
           ref={resultRef}
         >
           <div
@@ -146,25 +146,25 @@ export default function Quiz() {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl mt-10 font-extrabold text-indigo-700 mb-4">
+          <h2 className="text-xl md:text-3xl lg:text-4xl mt-10 font-extrabold text-purple-800 mb-4">
             {result.title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-4 w-fit">
+          <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-4 w-fit">
             {result.description}
           </p>
         </div>
         <div className="flex flex-row justify-center items-center mt-4">
           <button
-            className="bg-indigo-700 text-white py-3 px-6 md:py-4 md:px-10 rounded-full shadow-lg hover:bg-indigo-800 transition-all duration-300 transform hover:scale-105 text-lg md:text-xl font-bold tracking-wider"
+            className="bg-purple-800 text-white py-3 px-6 md:py-4 md:px-10 rounded-full shadow-lg hover:bg-purple-900 transition-all duration-300 transform hover:scale-105 text-lg md:text-xl font-bold tracking-wider"
             onClick={() => router.push("/")}
           >
             {language === "en" ? "Retake Quiz" : "再次測驗"}
           </button>
 
-          <ShareIcon
+          {/* <ShareIcon
             className="h-8 w-8 text-black mx-4 mt-4 md:mt-0 cursor-pointer"
             onClick={handleCapture}
-          />
+          /> */}
         </div>
 
         {/* Modal */}
@@ -175,7 +175,7 @@ export default function Quiz() {
                 Share Your Result
               </h2>
 
-              <div className="h-1/2 aspect-square relative mb-2`">
+              <div className="h-1/2 aspect-square relative">
                 <Image
                   src={result.result}
                   alt="Screenshot of your result"
@@ -185,7 +185,7 @@ export default function Quiz() {
               </div>
 
               <button
-                className="bg-indigo-700 text-white py-2 px-4 rounded-full shadow-lg hover:bg-indigo-800 transition-all duration-300 text-lg font-bold"
+                className="bg-purple-800 text-white py-2 px-4 rounded-full shadow-lg hover:bg-purple-900 transition-all duration-300 text-lg font-bold"
                 onClick={handleShare}
               >
                 Share
@@ -219,14 +219,14 @@ export default function Quiz() {
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-indigo-100 via-white to-indigo-100">
       <div className="relative h-16 w-full inline-flex items-center justify-between md:justify-end gap-4 px-4 container mx-auto z-10">
         <HomeIcon
-          className="h-8 w-8 text-indigo-700 cursor-pointer z-10"
+          className="h-8 w-8 text-purple-800 cursor-pointer z-10"
           onClick={() => router.push("/")}
         />
         <ArrowUturnLeftIcon
-          className="h-8 w-8 text-indigo-700 cursor-pointer z-10"
+          className="h-8 w-8 text-purple-800 cursor-pointer z-10"
           onClick={handleGoBack}
         />
-        <button className="w-fit py-1 px-2 bg-indigo-600 rounded-xl z-10">
+        <button className="w-fit py-1 px-2 bg-purple-800 rounded-xl z-10">
           {language === "en" ? (
             <p
               className="w-fit cursor-pointer font-semibold text-white"
@@ -270,7 +270,7 @@ export default function Quiz() {
               <button
                 key={option.option}
                 onClick={() => handleAnswer(option.option)}
-                className="bg-indigo-600 text-white py-1 px-2 md:py-4 md:px-6 rounded-lg shadow-md hover:bg-indigo-700 transition transform hover:scale-105 flex items-center justify-center h-40 text-md md:text-lg lg:text-xl font-semibold leading-tight md:leading-normal tracking-tight md:tracking-normal"
+                className="bg-purple-800 text-white py-1 px-2 md:py-4 md:px-6 rounded-lg shadow-md hover:bg-purple-900 transition transform hover:scale-105 flex items-center justify-center h-40 text-md md:text-lg lg:text-xl font-semibold leading-tight md:leading-normal tracking-tight md:tracking-normal"
               >
                 {option.text}
               </button>

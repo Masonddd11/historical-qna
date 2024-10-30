@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 import { homepageEn } from "../constants/en";
 import { homepageZh } from "../constants/zh";
@@ -28,15 +29,18 @@ export default function Home() {
       </Head>
 
       {/* Header Section */}
-      <header className="bg-blue-700  text-white py-6 shadow-lg ">
-        <div className="container mx-auto flex justify-between items-center h-[80px] px-2">
-          <h1 className="text-2xl lg:text-5xl font-extrabold tracking-wider text-white">
-            {currentTexts.header}
-          </h1>
+      <header className="bg-blue-700 text-white py-6 shadow-lg relative h-[80px]">
+        <Image
+          src="/question-banner.jpeg"
+          alt="background"
+          fill
+          className="object-cover z-0"
+        />
+        <div className="relative container mx-auto flex justify-end items-center h-[40px] px-2 z-10">
           <button className="w-fit py-2 px-4 bg-white rounded-full shadow-md hover:bg-blue-200 transition duration-300">
             {language === "en" ? (
               <p
-                className="cursor-pointer font-semibold text-blue-700 whitespace-nowrap"
+                className="cursor-pointer font-semibold text-purple-900 whitespace-nowrap text-sm"
                 onClick={() => {
                   setLanguage("zh");
                 }}
@@ -45,7 +49,7 @@ export default function Home() {
               </p>
             ) : (
               <p
-                className="cursor-pointer font-semibold text-blue-700"
+                className="cursor-pointer font-semibold text-blue-700 whitespace-nowrap text-sm"
                 onClick={() => {
                   setLanguage("en");
                 }}
@@ -80,7 +84,7 @@ export default function Home() {
           {currentTexts.joinDescription}
         </p>
         <Link href="/quiz">
-          <button className="bg-blue-700 text-white py-4 px-10 rounded-full shadow-xl hover:bg-blue-800 transition duration-300 text-xl flex items-center justify-center font-bold transform hover:scale-105">
+          <button className="bg-purple-800 text-white py-4 px-10 rounded-full shadow-xl hover:bg-purple-900 transition duration-300 text-xl flex items-center justify-center font-bold transform hover:scale-105">
             {currentTexts.startButton}
           </button>
         </Link>

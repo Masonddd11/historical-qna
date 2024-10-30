@@ -5,7 +5,7 @@ export default function ProgressBar({ progress }: { progress: number }) {
         <div className="overflow-hidden rounded-full bg-gray-200">
           <div
             style={{ width: `${progress}%` }}
-            className="h-2 rounded-full bg-indigo-600"
+            className="h-2 rounded-full bg-purple-800"
           />
         </div>
       </div>
