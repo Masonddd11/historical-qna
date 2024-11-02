@@ -43,7 +43,7 @@ export const quizQuestionsEn = [
     question: "What is most important to you?",
     options: [
       { option: "A", text: "Art and culture" },
-      { option: "B", text: "Honor and duty" },
+      { option: "B", text: "Honour and duty" },
       { option: "C", text: "Wisdom and tradition" },
       { option: "D", text: "Power and influence" },
     ],
@@ -95,7 +95,7 @@ export const quizQuestionsEn = [
       },
       {
         option: "B",
-        text: "A legacy of bravery and strict adherence to a code of honor",
+        text: "A legacy of bravery and strict adherence to a code of honour",
       },
       {
         option: "C",
@@ -176,7 +176,7 @@ export const quizResultsEn = {
   B: {
     title: "Samurai",
     description:
-      "You are a Samurai! Honor, duty, and martial prowess define you. You adhere to a strict code of conduct and believe in leading by example. Your life is one of discipline, and you value loyalty and bravery above all else.",
+      "You are a Samurai! Honour, duty, and martial prowess define you. You adhere to a strict code of conduct and believe in leading by example. Your life is one of discipline, and you value loyalty and bravery above all else.",
     image: Samurai,
     result: SamuraiEn,
   },

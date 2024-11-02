@@ -130,7 +130,7 @@ export default function Quiz() {
           ref={resultRef}
         >
           <div
-            className="w-full aspect-auto relative mt-4"
+            className="w-full aspect-auto relative mt-2"
             style={{
               position: "relative",
               width: "100%",
@@ -149,7 +149,7 @@ export default function Quiz() {
           <h2
             className={`${
               language === "en"
-                ? "text-lg md:text-2xl lg:text-3xl"
+                ? "text-lg md:text-2xl lg:text-2xl"
                 : "text-xl md:text-3xl lg:text-4xl"
             } mt-10 font-extrabold text-purple-800 mb-4`}
           >
